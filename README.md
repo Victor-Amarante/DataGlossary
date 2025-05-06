@@ -7,6 +7,7 @@
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge) -->
 
 <img src="./docs/img/glossary.png" alt="Imagem do projeto">
+<img src="./docs/img/whatisstd.png" alt="Imagem do projeto com resposta">
 
 > Um assistente virtual inteligente que utiliza tecnologia RAG (Retrieval-Augmented Generation) para responder perguntas sobre terminologia de dados. Alimentado por um Glossário de Dados em formato PDF e potencializado pelos LLMs (Large Language Models), o sistema oferece respostas precisas e contextualizadas sobre conceitos de dados, tornando o aprendizado mais acessível e interativo.
 
