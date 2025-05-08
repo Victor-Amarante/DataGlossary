@@ -7,9 +7,6 @@ from . import models
 from . import schemas
 from .database import engine, SessionLocal
 from fastapi.middleware.cors import CORSMiddleware
-import shutil
-from pathlib import Path
-
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
