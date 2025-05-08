@@ -23,6 +23,9 @@ models.Base.metadata.create_all(bind=engine)
 BASE_DIR = Path(__file__).resolve().parent
 PDF_PATH = os.path.join(BASE_DIR, 'data', 'statsglossary.pdf')
 
+if not os.path.exists(PDF_PATH):
+    raise FileNotFoundError(f"PDF file not found at {PDF_PATH}")
+
 def get_db():
     db = SessionLocal()
     try:
@@ -40,6 +43,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Carrega e processa o PDF específico
 loader = PyPDFLoader(PDF_PATH)
 docs = loader.load()
 
