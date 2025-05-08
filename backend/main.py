@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Depends, status, UploadFile, File
 from typing import Annotated
 from sqlalchemy.orm import Session
-import models
-import schemas
-from database import engine, SessionLocal
+from . import models
+from . import schemas
+from .database import engine, SessionLocal
 from fastapi.middleware.cors import CORSMiddleware
 import shutil
 from pathlib import Path
