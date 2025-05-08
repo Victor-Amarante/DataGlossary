@@ -35,7 +35,7 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://data-glossary.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
