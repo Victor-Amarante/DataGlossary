@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // In a real application, this would be in an environment variable
-const API_URL = 'http://localhost:8000/question/';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const useDataQuery = () => {
   const [question, setQuestion] = useState('');
