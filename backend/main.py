@@ -13,13 +13,15 @@ from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
+from pathlib import Path
 
 load_dotenv()
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
 
-PDF_PATH = os.getenv('FILE_PATH')
+BASE_DIR = Path(__file__).resolve().parent
+PDF_PATH = os.path.join(BASE_DIR, 'data', 'statsglossary.pdf')
 
 def get_db():
     db = SessionLocal()
@@ -38,7 +40,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Carrega e processa o PDF específico
 loader = PyPDFLoader(PDF_PATH)
 docs = loader.load()
 
@@ -62,7 +63,6 @@ async def question(question: schemas.Question, db: Session = Depends(get_db)):
     
     try:
         answer = qa_chain.invoke(question.question)
-        # Se a resposta for um dicionário, pegamos apenas o campo 'result'
         if isinstance(answer, dict):
             answer = answer.get('result', str(answer))
             
