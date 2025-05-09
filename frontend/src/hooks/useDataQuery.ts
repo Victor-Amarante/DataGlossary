@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-// In a real application, this would be in an environment variable
-const API_URL = import.meta.env.VITE_API_URL;
+// Corrigindo o URL para apontar para o servidor local
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/question/';
 
 export const useDataQuery = () => {
   const [question, setQuestion] = useState('');

@@ -1,19 +1,23 @@
 import os
 from dotenv import load_dotenv
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException, Depends, status, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Annotated
 from sqlalchemy.orm import Session
-from . import models
-from . import schemas
-from .database import engine, SessionLocal
-from fastapi.middleware.cors import CORSMiddleware
+
+import models
+import schemas
+from database import engine, SessionLocal
+
 from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
-from pathlib import Path
+from langchain.chains import RetrievalQA
+
 
 load_dotenv()
 
@@ -39,11 +43,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://data-glossary.vercel.app"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
-# Carrega e processa o PDF específico
 loader = PyPDFLoader(PDF_PATH)
 docs = loader.load()
 
@@ -77,7 +80,7 @@ async def question(question: schemas.Question, db: Session = Depends(get_db)):
 
         return {"answer": answer}
     except Exception as e:
-      raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
+        raise HTTPException(
+                status_code=500,
+                detail=str(e)
+            )
