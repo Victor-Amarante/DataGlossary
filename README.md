@@ -111,13 +111,3 @@
   cd frontend
   npm run build
   ```
-
----
-
-## 🤝 Colaboradores
-
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
-
-| <a href="https://github.com/Victor-Amarante"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/102763898?v=4" width="120px;" alt="Victor Amarante"/></a> | <a href="https://github.com/Marianna-Pinho/"><img style="border-radius: 50%;" src="https://media.licdn.com/dms/image/v2/C4E03AQGeeiEqQmJ-zA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631844114236?e=1752105600&v=beta&t=4FloLkDZIs0RymO_Y4t4UH3WzzpTeMGkR_uh1_pmu4s" width="120px;" alt="Amarante"/></a> |
-| :----: | :----: |
-| [Victor Amarante](https://github.com/Victor-Amarante/) | [Marianna Pinho](https://github.com/Marianna-Pinho/) |
